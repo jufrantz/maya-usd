@@ -2656,14 +2656,8 @@ HdVP2DrawItem::RenderItemData& HdVP2Mesh::_CreateSmoothHullRenderItem(
     MSubSceneContainer& subSceneContainer,
     const HdGeomSubset* geomSubset) const
 {
-    MString itemName = name;
-    if (geomSubset) {
-        itemName += std::string(1, VP2_RENDER_DELEGATE_SEPARATOR).c_str();
-        itemName += geomSubset->id.GetString().c_str();
-    }
-
     MHWRender::MRenderItem* const renderItem = MHWRender::MRenderItem::Create(
-        itemName, MHWRender::MRenderItem::MaterialSceneItem, MHWRender::MGeometry::kTriangles);
+        name, MHWRender::MRenderItem::MaterialSceneItem, MHWRender::MGeometry::kTriangles);
 
     MHWRender::MGeometry::DrawMode drawMode = static_cast<MHWRender::MGeometry::DrawMode>(
         MHWRender::MGeometry::kShaded | MHWRender::MGeometry::kTextured);
